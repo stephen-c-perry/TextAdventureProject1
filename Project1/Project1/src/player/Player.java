@@ -1,3 +1,4 @@
+package player;
 public class Player {
 
     private String name;
@@ -84,10 +85,10 @@ public class Player {
     }
 
     // Constructor
-    public Player(String name, int hp, int strength, int dexterity, int wisdom, int constitution, int dying,
-            int wounded) {
+    public Player(String name, int hp, int ac, int strength, int dexterity, int wisdom, int constitution) {
         this.name = name;
         this.hp = hp;
+        this.ac = ac;
         this.strength = strength;
         this.dexterity = dexterity;
         this.wisdom = wisdom;
@@ -98,31 +99,8 @@ public class Player {
 
     // print stats
     public void printStats() {
-
-        System.out.println("\nHere are your character's stats: ");
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\n");
-        stringBuilder.append("Name: ");
-        stringBuilder.append(name);
-        stringBuilder.append("\n");
-        stringBuilder.append("HP: ");
-        stringBuilder.append(hp);
-        stringBuilder.append("AC: ");
-        stringBuilder.append(ac);
-        stringBuilder.append("\n");
-        stringBuilder.append("Strength: ");
-        stringBuilder.append(strength);
-        stringBuilder.append("\n");
-        stringBuilder.append("Dexterity: ");
-        stringBuilder.append(dexterity);
-        stringBuilder.append("\n");
-        stringBuilder.append("Wisdom: ");
-        stringBuilder.append(wisdom);
-        stringBuilder.append("\n");
-        stringBuilder.append("Constitution: ");
-        stringBuilder.append(constitution);
-        stringBuilder.append("\n");
-        System.out.println(stringBuilder.toString());
+        System.out.printf("\nHere are your character's stats: %nName: %s%nHP: %d%nAC: %d%nStrength: %d%nDexterity: %d%nWisdom: %d%nConstitution: %d%n",
+                    name, hp, ac, strength, dexterity, wisdom, constitution);
     }
 
     // I want a method to roll a d20 and the given ability modifier

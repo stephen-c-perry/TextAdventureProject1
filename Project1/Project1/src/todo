@@ -5,7 +5,6 @@
 
 -Questions:
 
-
     -Can I have folders under src and include all child classes in a folder under the parent class?
 
     -Can CharacterCreation be it's own class to less how much is written in the controller main method?
@@ -14,10 +13,10 @@
 
     -As hp is updated where is it stored?
 
-    -Can I trigger a scene and the player remains in that class until that send ends and returns to main method in MainGameController? (for example, after PathToMountain is chosen)
-        -Can I have a main method in the different Scenes?  like Swamp.main() triggers the game loop for the Swamp?
+    -Can I trigger a scene and the player remains in that class until that send ends and returns to main method in MainGameController? (for example, after PathToMountain is chosen) like Swamp.main()?
+        -Can I have a main method in the different Scenes?  like Swamp.run() triggers the game loop for the Swamp?
     -How can I have a variable in one class compare to the value in another class?
-        can I have     if Fighter.attack() >= Dragon.getdc() 
+        can I have     if player.attack() >= enemy.getdc() 
                             print "You hit! Roll for damage"
         could that be saved in the Encounter class and called for each attack roll or skill check?
 

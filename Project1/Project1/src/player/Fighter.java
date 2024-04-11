@@ -1,7 +1,10 @@
+package player;
+import encounter.DiceRoller;
+
 public class Fighter extends Player {
 
-    public Fighter(String name, int hp, int ac, int strength, int dexterity, int wisdom, int constitution, int dying, int wounded) {
-        super(name, hp, strength, dexterity, wisdom, constitution, dying, wounded);
+    public Fighter(String name){
+        super(name, 12, 20, 10, 10, 8, 10);
         
     }
     

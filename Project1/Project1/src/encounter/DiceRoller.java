@@ -1,3 +1,4 @@
+package encounter;
 import java.util.Random;
 
 public class DiceRoller {

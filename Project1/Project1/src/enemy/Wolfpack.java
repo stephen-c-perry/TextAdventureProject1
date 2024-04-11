@@ -1,3 +1,4 @@
+package enemy;
 public class Wolfpack extends Enemy{
 
     public Wolfpack(int hp, int difficultyClass) {

@@ -1,5 +1,12 @@
 import java.util.Scanner;
 
+import encounter.Encounter;
+import enemy.Wolfpack;
+import player.Druid;
+import player.Fighter;
+import player.Player;
+import player.Ranger;
+
 public class MainGameController {
     public static String name;
 
@@ -18,31 +25,39 @@ public class MainGameController {
         // close scanner
         in.close();
         // create new object depending on chosen class
+
+        Player player = null;
+
         switch (playerClass) {
             case 1:
-                Fighter playerFighter = new Fighter(name, 12, 20, 10, 10, 8, 10, 0, 0);
-                playerFighter.printStats();
+                player = new Fighter(name);
+                player.printStats();
                 break;
             case 2:
-                Druid playerDruid = new Druid(name, 8, 16, 8, 12, 10, 12, 0, 0);
-                playerDruid.printStats();
+                player = new Druid(name);
+                player.printStats();
                 break;
             case 3:
-                Ranger playerRanger = new Ranger(name, 10, 20, 10, 10, 10, 10, 0, 0);
-                playerRanger.printStats();
+                player = new Ranger(name);
+                player.printStats();
                 break;
             case 4:
-                Wizard playerWizard = new Wizard(name, 8, 16, 8, 12, 14, 10, 0, 0);
-                playerWizard.printStats();
+                player = new Wizard(name);
+                player.printStats();
                 break;
         }
 
-        /*WORKS FINE UP TO HERE */
+        //print intro
 
-        
+        //encounter object
+        Encounter encounter = new Encounter(player);
+
+        //sequence of events for encounter
+
+        Wolfpack wolfpack = new Wolfpack(20, 15);
+        encounter.setEnemy(wolfpack);
 
         // - easy mode or normal mode (easy mode gets +2 to hp
-
 
 
         // Set scene //

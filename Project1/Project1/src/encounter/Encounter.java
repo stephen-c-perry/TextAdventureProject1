@@ -1,4 +1,43 @@
+package encounter;
+
+
+import player.*;
+import enemy.*;
+
 public class Encounter {
+    Player player = null;
+    Enemy enemy = null;
+ 
+    public Encounter(Player player){
+        this.player = player;
+        }
+ 
+    
+    public Encounter(){}
+        
+    public Player getPlayer() { 
+        return player;
+    }
+ 
+    
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Enemy getEnemy() {
+        return enemy;
+    }
+
+    public void setEnemy(Enemy enemy) {
+        this.enemy = enemy;
+    }
+
+    
+    public void run(Player player, Enemy enemy){
+
+
+    }
+
     // methods for running an encounter
     // skills checks
     // will need 3 subclasses: Swamp, Rocky Terrain, Forest
@@ -17,11 +56,12 @@ public class Encounter {
         // if miss print you miss
     }
 
-    public void takeDamage() {
+    private void takeDamage() {
         // subtract from hp and set hp to new value
         // works on both player and enemy
-        // if hp <1 game over
-        // if hp <0, another round of combat
+        // if player hp <1 game over
+        // if enemy hp ...
+        // if player hp >0, another round of combat
     }
 
     // attack rolls

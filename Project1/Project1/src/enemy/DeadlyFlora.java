@@ -1,3 +1,4 @@
+package enemy;
 public class DeadlyFlora extends Enemy {
 
     public DeadlyFlora(int hp, int difficultyClass) {
