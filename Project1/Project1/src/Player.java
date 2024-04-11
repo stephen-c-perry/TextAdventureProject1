@@ -2,15 +2,15 @@ public class Player {
 
     private String name;
     private int hp;
+    private int ac;
     private int strength;
     private int dexterity;
     private int wisdom;
     private int constitution;
-    private int dying;
-    private int wounded;
+    // private int dying; stretch goal death saves
+    // private int wounded; stretch goal death saves
 
-
-    //Getters and Setters
+    // Getters and Setters
     public String getName() {
         return name;
     }
@@ -59,22 +59,29 @@ public class Player {
         this.constitution = constitution;
     }
 
-    public int getDying() {
-        return dying;
+    // public int getDying() {
+    // return dying;
+    // }
+
+    // public void setDying(int dying) {
+    // this.dying = dying;
+    // }
+
+    // public int getWounded() {
+    // return wounded;
+    // }
+
+    // public void setWounded(int wounded) {
+    // this.wounded = wounded;
+    // }
+
+    public int getAc() {
+        return ac;
     }
 
-    public void setDying(int dying) {
-        this.dying = dying;
+    public void setAc(int ac) {
+        this.ac = ac;
     }
-
-    public int getWounded() {
-        return wounded;
-    }
-
-    public void setWounded(int wounded) {
-        this.wounded = wounded;
-    }
-
 
     // Constructor
     public Player(String name, int hp, int strength, int dexterity, int wisdom, int constitution, int dying,
@@ -85,19 +92,23 @@ public class Player {
         this.dexterity = dexterity;
         this.wisdom = wisdom;
         this.constitution = constitution;
-        this.dying = dying;
-        this.wounded = wounded;
+        // this.dying = dying;
+        // this.wounded = wounded;
     }
 
     // print stats
     public void printStats() {
-        System.out.println("Here are your character's stats: ");
+
+        System.out.println("\nHere are your character's stats: ");
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n");
         stringBuilder.append("Name: ");
         stringBuilder.append(name);
         stringBuilder.append("\n");
         stringBuilder.append("HP: ");
         stringBuilder.append(hp);
+        stringBuilder.append("AC: ");
+        stringBuilder.append(ac);
         stringBuilder.append("\n");
         stringBuilder.append("Strength: ");
         stringBuilder.append(strength);
@@ -114,8 +125,11 @@ public class Player {
         System.out.println(stringBuilder.toString());
     }
 
-    public void Attack(String stat) {
-        int roll = DiceRoller.rollD20() + stat;
+    // I want a method to roll a d20 and the given ability modifier
+    // ex: for a Fighter, roll a d20 and add strength for final result
+    // that result gets checked against the enemy's DC
+    public void Attack() {
+
     };
 
 }

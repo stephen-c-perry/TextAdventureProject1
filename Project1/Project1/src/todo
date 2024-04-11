@@ -1,3 +1,25 @@
-- finish buidling enemies
-- write script for gameplay
+- finish building enemies
+- finish combat mechanics
+- write script for gameplay and change print statements
+- prettify
+
+-Questions:
+
+
+    -Can I have folders under src and include all child classes in a folder under the parent class?
+
+    -Can CharacterCreation be it's own class to less how much is written in the controller main method?
+
+    -After the player choses a character class and the object is created, can I reassign to a different variable name to use for the rest of the main method?  Is there a better way to do it?
+
+    -As hp is updated where is it stored?
+
+    -Can I trigger a scene and the player remains in that class until that send ends and returns to main method in MainGameController? (for example, after PathToMountain is chosen)
+        -Can I have a main method in the different Scenes?  like Swamp.main() triggers the game loop for the Swamp?
+    -How can I have a variable in one class compare to the value in another class?
+        can I have     if Fighter.attack() >= Dragon.getdc() 
+                            print "You hit! Roll for damage"
+        could that be saved in the Encounter class and called for each attack roll or skill check?
+
+    
 
