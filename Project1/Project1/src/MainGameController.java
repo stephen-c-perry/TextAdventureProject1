@@ -1,12 +1,39 @@
+import java.util.Scanner;
+
 public class MainGameController {
+    public static String name;
+
     public static void main(String[] args) {
         // Welcome message
+        System.out.println("Welcome!");
 
-        // Create Character //
-        // - name
-        // - choose class
-        // - easy mode or normal mode (easy mode gets to choose 2 stat boosts)
-
+        // Character Creation //
+        Scanner in = new Scanner(System.in);
+        //prompt for name
+        System.out.print("Enter a name for your character: ");
+        name = in.nextLine();
+        //prompt for player class
+        System.out.println("Chose your class by entering a number: \n1 = Fighter\n2 = Druid\n3 = Ranger\n4 = Wizard");
+        int playerClass = in.nextInt();
+        //close scanner
+        in.close();
+        //create new object depending on chosen class
+        switch (playerClass) {
+            case 1:
+                Fighter playerFighter = new Fighter(name, 12, 10, 10, 8, 10, 0, 0);
+                break;
+            case 2:
+                Druid playerDruid = new Druid(name, 8, 8, 12, 10, 12, 0, 0);
+                break;
+            case 3:
+                Ranger playerRanger = new Ranger(name, 10, 10, 10, 10, 10, 0, 0);
+                break;
+            case 4:
+                Wizard playerWizard = new Wizard(name, 8, 8, 12, 14, 10, 0, 0);
+                break;
+        }
+        // - easy mode or normal mode (easy mode gets +2 to hp
+        
         // Set scene //
         // -relay intel
         // -give charge

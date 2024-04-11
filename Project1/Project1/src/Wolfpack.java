@@ -5,4 +5,7 @@ public class Wolfpack extends Enemy{
         
     }
 
+    // print statements to initiate wolfpack encounter
+    // 
+
 }
