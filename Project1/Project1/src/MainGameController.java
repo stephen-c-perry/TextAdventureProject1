@@ -1,17 +1,9 @@
 import java.util.Scanner;
 
-import encounter.Encounter;
-import enemy.Dragon;
-import enemy.Wolfpack;
-import player.Druid;
-import player.Fighter;
-import player.Player;
-import player.Ranger;
-import player.Wizard;
-import scene.Forest;
-import scene.RockyTerrain;
-import scene.Scene;
-import scene.Swamp;
+import encounter.*;
+import enemy.*;
+import player.*;
+import scene.*;
 
 public class MainGameController {
 
