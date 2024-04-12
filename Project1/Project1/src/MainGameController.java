@@ -9,7 +9,9 @@ public class MainGameController {
 
     public static void main(String[] args) throws InterruptedException {
         // Welcome message
-        System.out.println("\nWelcome!");
+        System.out.println("------------------------------");
+        System.out.println("Welcome!");
+        System.out.println("------------------------------");
 
         // Character Creation //
         Scanner in = new Scanner(System.in);

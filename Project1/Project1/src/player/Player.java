@@ -100,9 +100,11 @@ public class Player {
 
     // print stats
     public void printStats() {
+        System.out.println("------------------------------");
         System.out.printf(
                 "\nHere are your character's stats: %nName: %s%nHP: %d%nAC: %d%nStrength: %d%nDexterity: %d%nWisdom: %d%nConstitution: %d%n",
                 name, hp, ac, strength, dexterity, wisdom, constitution);
+        System.out.println("------------------------------");
     }
 
     // I want a method to roll a d20 and the given ability modifier
