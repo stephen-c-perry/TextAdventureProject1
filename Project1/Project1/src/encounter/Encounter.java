@@ -30,18 +30,23 @@ public class Encounter {
         this.enemy = enemy;
     }
 
-    public void run() {
+    public void run(int mod) throws InterruptedException {
         System.out.println("Prepare for combat!");
+        Thread.sleep(3500);
 
         while (player.isAlive() && enemy.isAlive()) {
             // Player's turn
             if (player.isAlive()) {
+                System.out.println();
                 playerAttackAndDamage(player.attack(), enemy.getDc());
+                Thread.sleep(1500);
             }
 
             // Enemy's turn
             if (enemy.isAlive()) {
-                enemyAttackAndDamage(enemy.attack(2), player.getAc());
+                System.out.println();
+                enemyAttackAndDamage(enemy.attack(mod), player.getAc());
+                Thread.sleep(1500);
             }
         }
 
@@ -50,33 +55,34 @@ public class Encounter {
             System.exit(0);
         } else {
             System.out.println("You defeated the enemy! Your HP is now " + player.getHp());
-            
+
         }
     }
 
     private void playerAttackAndDamage(int attackRoll, int acOrDc) {
         if (attackRoll >= acOrDc) {
+            System.out.println();
             int damage = DiceRoller.rollDamage(8);
             enemy.setHp(enemy.getHp() - damage);
             System.out.println(player.getName() + " hit " + enemy.getName() + " for " + damage + " damage!");
         } else {
+            
             System.out.println(player.getName() + " missed " + enemy.getName() + "!");
         }
     }
 
     private void enemyAttackAndDamage(int attackRoll, int acOrDc) {
         if (attackRoll >= acOrDc) {
+            System.out.println();
             int damage = DiceRoller.rollDamage(8);
             player.setHp(player.getHp() - damage);
+            
             System.out.println(enemy.getName() + " hit " + player.getName() + " for " + damage + " damage!");
         } else {
+            
             System.out.println(enemy.getName() + " missed " + player.getName() + "!");
         }
     }
-    
 
-    // attack rolls
-    // taking damage
-    // if player hp > wolfpack hp && wolfpack hp < 1, set player, print remaining hp
-    // continue to next scene
+ 
 }

@@ -1,4 +1,5 @@
 package enemy;
+
 public class Dragon extends Enemy {
 
     public Dragon(String name, int hp, int difficultyClass) {
@@ -9,5 +10,5 @@ public class Dragon extends Enemy {
     public boolean isAlive() {
         return getHp() > 0;
     }
-    
+
 }

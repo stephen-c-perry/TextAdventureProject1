@@ -78,10 +78,10 @@ public class MainGameController {
         Wolfpack wolfpack = new Wolfpack("Wolfpack", 25, 8);
         encounter.setEnemy(wolfpack);
         encounter.setPlayer(player);
-        encounter.run(); // combat works and program runs to this point
+        encounter.run(2); // 2 is the attack modifier
 
         // If survive, continue path reach crossroads
-        System.out.println("You continue your journey and come to a crossroads.");
+        System.out.println("\nYou continue your journey and come to a crossroads.");
         System.out.println(
                 "The path splits into three.\nIt looks like all paths lead to the mountain. Which will you choose?\n");
         System.out.println("1: Left 2: Center 3: Right");
@@ -104,21 +104,34 @@ public class MainGameController {
         }
 
         scene.setPlayer(player);
-        System.out.println("did i make it this far?");
         scene.run();
-        
-        System.out.println("You made it this far now fight the dragon");
+
+        System.out.println("You approach the mountain and enter through a cave opening.");
+        Thread.sleep(1500);
+        System.out.println();
+        System.out.println("You find the dragon and see the King's treasure behind it.  Are you ready to fight? ");
+
+        boolean ready2 = false;
+
+        while (!ready2) {
+            String response = in.next();
+            if (response.equalsIgnoreCase("yes")) {
+                ready2 = true;
+                System.out.println("Huzzah!");
+            } else if (response.equalsIgnoreCase("no")) {
+                System.out.println("That's unfortunate. The adventure ends here.");
+            } else {
+                System.out.println("Invalid response. Please enter 'yes' or 'no'.");
+            }
+        }
+
 
         Encounter finalBoss = new Encounter(player);
-        Dragon dragon = new Dragon("Wolfpack", 25, 8);
+        Dragon dragon = new Dragon("Dragon", 25, 8);
         finalBoss.setEnemy(dragon);
         finalBoss.setPlayer(player);
-        finalBoss.run();
+        finalBoss.run(4); // 4 is the attack modifier
         System.out.println("The End");
-
-
-
-
 
     }
 

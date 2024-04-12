@@ -9,11 +9,13 @@ public class Swamp extends Scene {
     }
 
     @Override
-    public void run() {
+    public void run() throws InterruptedException{
         System.out.println(
                 "As you head down this path you feel your feet sinking into the ground as you have stumbled into a Swamp.");
         System.out.println(
                 "You begin feeling nauseous from what seems like toxic fumes.  Make a constitution save. \nrolling... ");
+        System.err.println();
+        Thread.sleep(2500);
         if (DiceRoller.rollD20() < getDc()) {
             int damage = 4;
             getPlayer().setHp(getPlayer().getHp() - damage);

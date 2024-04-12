@@ -1,4 +1,5 @@
 package enemy;
+
 import encounter.DiceRoller;
 
 public class Enemy {
@@ -36,13 +37,13 @@ public class Enemy {
         this.dc = dc;
     }
 
-    public int attack(int mod){
+    public int attack(int mod) {
         int roll = DiceRoller.rollD20() + mod;
         System.out.println("Attack roll is " + roll);
         return roll;
     }
 
-    public int damage(int damageDie){
+    public int damage(int damageDie) {
         int roll = DiceRoller.rollDamage(damageDie);
         System.out.println("Your attack roll plus wisdom mod is " + roll);
         return roll;
@@ -53,8 +54,7 @@ public class Enemy {
     }
 
     // private void takeDamage(int damage) {
-    //     Enemy.sethpEnemy.hp - damage);
+    // Enemy.sethpEnemy.hp - damage);
     // }
-    
-    
+
 }

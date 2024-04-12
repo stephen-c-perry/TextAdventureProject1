@@ -43,9 +43,8 @@ public class Scene {
         return 0;
     }
 
-    public void run() {
-        
-    }
+    public void run() throws InterruptedException {
 
+    }
 
 }

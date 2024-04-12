@@ -1,4 +1,5 @@
 package player;
+
 public class Player {
 
     private String name;
@@ -99,8 +100,9 @@ public class Player {
 
     // print stats
     public void printStats() {
-        System.out.printf("\nHere are your character's stats: %nName: %s%nHP: %d%nAC: %d%nStrength: %d%nDexterity: %d%nWisdom: %d%nConstitution: %d%n",
-                    name, hp, ac, strength, dexterity, wisdom, constitution);
+        System.out.printf(
+                "\nHere are your character's stats: %nName: %s%nHP: %d%nAC: %d%nStrength: %d%nDexterity: %d%nWisdom: %d%nConstitution: %d%n",
+                name, hp, ac, strength, dexterity, wisdom, constitution);
     }
 
     // I want a method to roll a d20 and the given ability modifier
@@ -110,12 +112,11 @@ public class Player {
         return 0;
     }
 
-
     public boolean isAlive() {
         return hp > 0;
     }
 
-    public int skillCheck(){
+    public int skillCheck() {
         return 0;
     }
 

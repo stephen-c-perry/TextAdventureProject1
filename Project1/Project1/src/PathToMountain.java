@@ -1,4 +1,4 @@
 public class PathToMountain {
-    int difficultyClass;
+    //for crossroads scene but currently it's handled in main
     
 }

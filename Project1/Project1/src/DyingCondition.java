@@ -3,5 +3,5 @@ public class DyingCondition {
     // optional, gain wounded condition if you recover, wounded advances starting
     // dying level if downed again
 
-    //if dying condition reaches dying4, dead
+    // if dying condition reaches dying4, dead
 }
