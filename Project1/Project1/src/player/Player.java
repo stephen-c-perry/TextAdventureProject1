@@ -106,8 +106,13 @@ public class Player {
     // I want a method to roll a d20 and the given ability modifier
     // ex: for a Fighter, roll a d20 and add strength for final result
     // that result gets checked against the enemy's DC
-    public void Attack() {
+    public int attack() {
+        return 0;
+    }
 
-    };
 
+    public boolean isAlive() {
+        return hp > 0;
+    }
+    
 }

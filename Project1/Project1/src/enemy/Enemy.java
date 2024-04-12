@@ -3,7 +3,7 @@ import encounter.DiceRoller;
 
 public class Enemy {
     private String name;
-     private int hp;
+    private int hp;
     private int dc;
 
     public String getName() {
@@ -30,7 +30,8 @@ public class Enemy {
         this.dc = dc;
     }
 
-    public Enemy(int hp, int dc) {
+    public Enemy(String name, int hp, int dc) {
+        this.name = name;
         this.hp = hp;
         this.dc = dc;
     }
@@ -46,4 +47,14 @@ public class Enemy {
         System.out.println("Your attack roll plus wisdom mod is " + roll);
         return roll;
     }
+
+    public boolean isAlive() {
+        return hp > 0;
+    }
+
+    // private void takeDamage(int damage) {
+    //     Enemy.sethpEnemy.hp - damage);
+    // }
+    
+    
 }

@@ -1,5 +1,4 @@
-import player.Player;
-
+package player;
 public class Wizard extends Player{
 
     public Wizard(String name) {

@@ -6,11 +6,12 @@ import player.Druid;
 import player.Fighter;
 import player.Player;
 import player.Ranger;
+import player.Wizard;
 
 public class MainGameController {
     public static String name;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // Welcome message
         System.out.println("Welcome!");
 
@@ -22,8 +23,6 @@ public class MainGameController {
         // prompt for player class
         System.out.println("Chose your class by entering a number: \n1 = Fighter\n2 = Druid\n3 = Ranger\n4 = Wizard");
         int playerClass = in.nextInt();
-        // close scanner
-        in.close();
         // create new object depending on chosen class
 
         Player player = null;
@@ -46,28 +45,38 @@ public class MainGameController {
                 player.printStats();
                 break;
         }
+        // print intro
+        System.out
+                .println("The king's treasure has been stolen and it's being held in the mountain guarded by a dragon");
 
-        //print intro
+        boolean ready = false;
 
-        //encounter object
+        while (!ready) {
+            System.out.println("Will you go and take back the king's treasure?\nEnter yes or no");
+            String response = in.next();
+            if (response.equalsIgnoreCase("yes")) {
+                ready = true;
+                System.out.println("Then let's begin...");
+            } else if (response.equalsIgnoreCase("no")) {
+                System.out.println("That's unfortunate. The adventure ends here.");
+            } else {
+                System.out.println("Invalid response. Please enter 'yes' or 'no'.");
+            }
+        }
+
+        // close scanner
+        in.close();
+
+        Thread.sleep(2000);
+
+        // first encounter
+        System.out.println("After about 1 hour on the path to the mountains you are suddenly surrounded by pack of wolves!");
+
         Encounter encounter = new Encounter(player);
-
-        //sequence of events for encounter
-
-        Wolfpack wolfpack = new Wolfpack(20, 15);
+        Wolfpack wolfpack = new Wolfpack("Wolfpack", 20, 15);
         encounter.setEnemy(wolfpack);
-
-        // - easy mode or normal mode (easy mode gets +2 to hp
-
-
-        // Set scene //
-        // -relay intel
-        // -give charge
-        // Are you ready to embark? y/n
-
-        // Heading towards mountain encounter pack of wolves
-
-        // Encounter 1 (Wolves)//
+        encounter.setPlayer(player);
+        encounter.run();
 
         // If survive, continue path reach crossroads
         // -all paths lead to mountain hoose which path to take
