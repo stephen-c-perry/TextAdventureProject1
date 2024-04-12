@@ -6,4 +6,8 @@ public class Dragon extends Enemy {
 
     }
 
+    public boolean isAlive() {
+        return getHp() > 0;
+    }
+    
 }

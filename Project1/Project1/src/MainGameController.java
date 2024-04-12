@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import encounter.Encounter;
+import enemy.Dragon;
 import enemy.Wolfpack;
 import player.Druid;
 import player.Fighter;
@@ -13,11 +14,10 @@ import scene.Scene;
 import scene.Swamp;
 
 public class MainGameController {
-    // public static String name;
 
     public static void main(String[] args) throws InterruptedException {
         // Welcome message
-        System.out.println("Welcome!");
+        System.out.println("\nWelcome!");
 
         // Character Creation //
         Scanner in = new Scanner(System.in);
@@ -68,9 +68,6 @@ public class MainGameController {
             }
         }
 
-        // close scanner
-        in.close();
-
         Thread.sleep(2000);
 
         // first encounter
@@ -78,7 +75,7 @@ public class MainGameController {
                 "After about 1 hour on the path to the mountains you are suddenly surrounded by pack of wolves!");
 
         Encounter encounter = new Encounter(player);
-        Wolfpack wolfpack = new Wolfpack("Wolfpack", 25, 15);
+        Wolfpack wolfpack = new Wolfpack("Wolfpack", 25, 8);
         encounter.setEnemy(wolfpack);
         encounter.setPlayer(player);
         encounter.run(); // combat works and program runs to this point
@@ -89,31 +86,40 @@ public class MainGameController {
                 "The path splits into three.\nIt looks like all paths lead to the mountain. Which will you choose?\n");
         System.out.println("1: Left 2: Center 3: Right");
 
-        Scanner in2 = new Scanner(System.in);
-        int pathChoice = in2.nextInt();
+        // Scanner in = new Scanner(System.in);
+        int pathChoice = in.nextInt();
 
         Scene scene = null;
 
         switch (pathChoice) {
             case 1:
-                scene = new Swamp("Swamp", 20); // need to create the run method for the different scenes
+                scene = new Swamp(12); // makes con save for poison damage
                 break;
             case 2:
-                scene = new RockyTerrain("Rocky Terrain", 15);
+                scene = new RockyTerrain(10); // takes 2 damage
                 break;
             case 3:
-                scene = new Forest("Forest", 10);
+                scene = new Forest(8); // no damage
                 break;
-            
-            // -all paths lead to mountain hoose which path to take
-            // -Toxic Swamp, Rocky Terrain, Forest
-
-            // Skill check to navigate terrain
-            // -Swamp (con save/poison damage)
-            // -Rocky Terrain (dex save/ physical damage) -traverse
-            // -Forest (wis save/ hunger lose hp) -find food
-
         }
 
+        scene.setPlayer(player);
+        System.out.println("did i make it this far?");
+        scene.run();
+        
+        System.out.println("You made it this far now fight the dragon");
+
+        Encounter finalBoss = new Encounter(player);
+        Dragon dragon = new Dragon("Wolfpack", 25, 8);
+        finalBoss.setEnemy(dragon);
+        finalBoss.setPlayer(player);
+        finalBoss.run();
+        System.out.println("The End");
+
+
+
+
+
     }
+
 }

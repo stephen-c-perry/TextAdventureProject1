@@ -47,10 +47,10 @@ public class Encounter {
 
         if (!player.isAlive()) {
             System.out.println("You have been defeated!");
-            // Handle game over
+            System.exit(0);
         } else {
-            System.out.println("You defeated the enemy!");
-            // Handle victory
+            System.out.println("You defeated the enemy! Your HP is now " + player.getHp());
+            
         }
     }
 
@@ -73,13 +73,7 @@ public class Encounter {
             System.out.println(enemy.getName() + " missed " + player.getName() + "!");
         }
     }
-    // methods for running an encounter
-    // skills checks
-    // will need 3 subclasses: Swamp, Rocky Terrain, Forest
-
-    // private void skillCheck() {
-    //     // Implement skill check logic
-    // }
+    
 
     // attack rolls
     // taking damage

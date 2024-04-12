@@ -114,5 +114,9 @@ public class Player {
     public boolean isAlive() {
         return hp > 0;
     }
-    
+
+    public int skillCheck(){
+        return 0;
+    }
+
 }
