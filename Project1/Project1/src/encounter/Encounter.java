@@ -28,7 +28,6 @@ public class Encounter {
 
     public void setEnemy(Enemy enemy) {
         this.enemy = enemy;
-        System.out.println("enemy set in encounter"); //testing
     }
 
     public void run() {
@@ -37,12 +36,12 @@ public class Encounter {
         while (player.isAlive() && enemy.isAlive()) {
             // Player's turn
             if (player.isAlive()) {
-                hitCheckAndDamage(player.attack(), enemy.getDc());
+                playerAttackAndDamage(player.attack(), enemy.getDc());
             }
 
             // Enemy's turn
             if (enemy.isAlive()) {
-                hitCheckAndDamage(enemy.attack(2), player.getAc());
+                enemyAttackAndDamage(enemy.attack(2), player.getAc());
             }
         }
 
@@ -55,7 +54,7 @@ public class Encounter {
         }
     }
 
-    private void hitCheckAndDamage(int attackRoll, int acOrDc) {
+    private void playerAttackAndDamage(int attackRoll, int acOrDc) {
         if (attackRoll >= acOrDc) {
             int damage = DiceRoller.rollDamage(8);
             enemy.setHp(enemy.getHp() - damage);
@@ -65,6 +64,15 @@ public class Encounter {
         }
     }
 
+    private void enemyAttackAndDamage(int attackRoll, int acOrDc) {
+        if (attackRoll >= acOrDc) {
+            int damage = DiceRoller.rollDamage(8);
+            player.setHp(player.getHp() - damage);
+            System.out.println(enemy.getName() + " hit " + player.getName() + " for " + damage + " damage!");
+        } else {
+            System.out.println(enemy.getName() + " missed " + player.getName() + "!");
+        }
+    }
     // methods for running an encounter
     // skills checks
     // will need 3 subclasses: Swamp, Rocky Terrain, Forest

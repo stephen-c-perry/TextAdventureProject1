@@ -1,8 +1,8 @@
 package enemy;
 public class Dragon extends Enemy {
 
-    public Dragon(int hp, int difficultyClass) {
-        super(hp, difficultyClass);
+    public Dragon(String name, int hp, int difficultyClass) {
+        super(name, hp, difficultyClass);
 
     }
 

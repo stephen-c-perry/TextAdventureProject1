@@ -7,9 +7,13 @@ import player.Fighter;
 import player.Player;
 import player.Ranger;
 import player.Wizard;
+import scene.Forest;
+import scene.RockyTerrain;
+import scene.Scene;
+import scene.Swamp;
 
 public class MainGameController {
-    public static String name;
+    // public static String name;
 
     public static void main(String[] args) throws InterruptedException {
         // Welcome message
@@ -19,7 +23,7 @@ public class MainGameController {
         Scanner in = new Scanner(System.in);
         // prompt for name
         System.out.print("Enter a name for your character: ");
-        name = in.nextLine();
+        String name = in.nextLine();
         // prompt for player class
         System.out.println("Chose your class by entering a number: \n1 = Fighter\n2 = Druid\n3 = Ranger\n4 = Wizard");
         int playerClass = in.nextInt();
@@ -70,23 +74,46 @@ public class MainGameController {
         Thread.sleep(2000);
 
         // first encounter
-        System.out.println("After about 1 hour on the path to the mountains you are suddenly surrounded by pack of wolves!");
+        System.out.println(
+                "After about 1 hour on the path to the mountains you are suddenly surrounded by pack of wolves!");
 
         Encounter encounter = new Encounter(player);
-        Wolfpack wolfpack = new Wolfpack("Wolfpack", 20, 15);
+        Wolfpack wolfpack = new Wolfpack("Wolfpack", 25, 15);
         encounter.setEnemy(wolfpack);
         encounter.setPlayer(player);
-        encounter.run();
+        encounter.run(); // combat works and program runs to this point
 
         // If survive, continue path reach crossroads
-        // -all paths lead to mountain hoose which path to take
-        // -Toxic Swamp, Rocky Terrain, Forest
+        System.out.println("You continue your journey and come to a crossroads.");
+        System.out.println(
+                "The path splits into three.\nIt looks like all paths lead to the mountain. Which will you choose?\n");
+        System.out.println("1: Left 2: Center 3: Right");
 
-        // Skill check to navigate terrain
-        // -Swamp (con save/poison damage)
-        // -Rocky Terrain (dex save/ physical damage) -traverse
-        // -Forest (wis save/ hunger lose hp) -find food
+        Scanner in2 = new Scanner(System.in);
+        int pathChoice = in2.nextInt();
+
+        Scene scene = null;
+
+        switch (pathChoice) {
+            case 1:
+                scene = new Swamp("Swamp", 20); // need to create the run method for the different scenes
+                break;
+            case 2:
+                scene = new RockyTerrain("Rocky Terrain", 15);
+                break;
+            case 3:
+                scene = new Forest("Forest", 10);
+                break;
+            
+            // -all paths lead to mountain hoose which path to take
+            // -Toxic Swamp, Rocky Terrain, Forest
+
+            // Skill check to navigate terrain
+            // -Swamp (con save/poison damage)
+            // -Rocky Terrain (dex save/ physical damage) -traverse
+            // -Forest (wis save/ hunger lose hp) -find food
+
+        }
 
     }
-
 }

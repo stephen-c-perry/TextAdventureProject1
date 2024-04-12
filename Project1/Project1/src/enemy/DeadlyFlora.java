@@ -1,8 +1,8 @@
 package enemy;
 public class DeadlyFlora extends Enemy {
 
-    public DeadlyFlora(int hp, int difficultyClass) {
-        super(hp, difficultyClass);
+    public DeadlyFlora(String name, int hp, int difficultyClass) {
+        super(name, hp, difficultyClass);
 
     }
 

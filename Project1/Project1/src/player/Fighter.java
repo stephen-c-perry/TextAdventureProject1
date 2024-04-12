@@ -4,7 +4,7 @@ import encounter.DiceRoller;
 public class Fighter extends Player {
 
     public Fighter(String name){
-        super(name, 12, 20, 10, 10, 8, 10);
+        super(name, 12, 12, 10, 10, 8, 10);
         
     }
     
